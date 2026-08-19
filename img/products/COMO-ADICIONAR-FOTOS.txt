@@ -1,0 +1,44 @@
+COMO ADICIONAR AS FOTOS DOS PRODUTOS
+=====================================
+
+Basta salvar as fotos nesta pasta (img/products/) usando o nome de
+arquivo exato de cada produto. O site detecta a foto automaticamente
+— não precisa editar nenhum código.
+
+Se um arquivo não existir, o site continua mostrando o ícone de
+placeholder no lugar, então nada quebra enquanto você não tiver
+todas as fotos prontas. Pode subir uma de cada vez.
+
+RECOMENDAÇÕES DA FOTO
+----------------------
+- Formato: .jpg
+- Proporção: quadrada ou 4:3 (o site corta automaticamente para caber)
+- Tamanho sugerido: pelo menos 800x800px
+- Fundo neutro/branco combina melhor com o visual do site
+
+ARQUIVO -> PRODUTO
+-------------------
+p01.jpg  -> Roçadeira 122C
+p02.jpg  -> Roçadeira 128R
+p03.jpg  -> Roçadeira 143R II
+p04.jpg  -> Roçadeira 535RX
+p05.jpg  -> Roçadeira 545RX
+p06.jpg  -> Roçadeira a Bateria 315iC
+p07.jpg  -> Motosserra 120 Mark II
+p08.jpg  -> Motosserra 440e II
+p09.jpg  -> Motosserra 450 Rancher
+p10.jpg  -> Motosserra 545 Mark II
+p11.jpg  -> Motosserra 562 XP
+p12.jpg  -> Motosserra T435 Poda
+p13.jpg  -> Corrente para Motosserra 18"
+p14.jpg  -> Kit Fio de Nylon 2.4mm
+p15.jpg  -> Óleo para Corrente 1L
+p16.jpg  -> Kit de Proteção Completo
+
+QUER USAR .PNG OU OUTRO NOME?
+------------------------------
+Se preferir, abra js/data.js e troque o valor de "image" do produto,
+por exemplo:
+  { id:'p01', image:'p01.jpg', ... }
+para
+  { id:'p01', image:'rocadeira-122c.png', ... }

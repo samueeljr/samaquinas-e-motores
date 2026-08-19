@@ -1,0 +1,79 @@
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+[data-reveal]{
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .8s cubic-bezier(.22,.9,.3,1), transform .8s cubic-bezier(.22,.9,.3,1);
+}
+[data-reveal].in-view{ opacity: 1; transform: translateY(0); }
+
+[data-reveal="scale"]{ transform: scale(.94) translateY(0); }
+[data-reveal="scale"].in-view{ transform: scale(1) translateY(0); }
+
+[data-reveal="left"]{ transform: translateX(-36px); }
+[data-reveal="left"].in-view{ transform: translateX(0); }
+
+[data-reveal="right"]{ transform: translateX(36px); }
+[data-reveal="right"].in-view{ transform: translateX(0); }
+
+/* stagger children via inline --d custom property */
+[data-reveal]{ transition-delay: var(--d, 0ms); }
+
+@keyframes float-y{
+  0%,100%{ transform: translateY(0); }
+  50%{ transform: translateY(-14px); }
+}
+.float{ animation: float-y 5s ease-in-out infinite; }
+
+@keyframes spin-slow{
+  to{ transform: rotate(360deg); }
+}
+.spin-slow{ animation: spin-slow 18s linear infinite; }
+
+@keyframes dash-move{
+  to{ background-position: 80px 0; }
+}
+.moving-stripe{
+  background-image: repeating-linear-gradient(-45deg, var(--orange) 0 14px, transparent 14px 28px);
+  background-size: 80px 100%;
+  animation: dash-move 3s linear infinite;
+}
+
+@keyframes pulse-ring{
+  0%{ box-shadow: 0 0 0 0 var(--orange-glow); }
+  100%{ box-shadow: 0 0 0 16px rgba(255,90,31,0); }
+}
+.pulse{ animation: pulse-ring 2s infinite; }
+
+@keyframes fade-in-up{
+  from{ opacity: 0; transform: translateY(20px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+.fade-in-up{ animation: fade-in-up .8s var(--ease) both; }
+
+@keyframes gauge-sweep{
+  from{ stroke-dashoffset: var(--circ); }
+  to{ stroke-dashoffset: var(--offset); }
+}
+
+@keyframes marquee{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+.marquee-track{
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+.skeleton{
+  background: linear-gradient(90deg, #e9eaea 25%, #f4f5f5 37%, #e9eaea 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+}
+@keyframes skeleton-loading{
+  0%{ background-position: 100% 50%; }
+  100%{ background-position: 0 50%; }
+}

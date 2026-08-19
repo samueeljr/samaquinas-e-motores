@@ -1,0 +1,50 @@
+/* ==========================================================================
+   SERVICE.CSS
+   ========================================================================== */
+
+.service-grid{ display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.service-card{
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.service-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.service-card .num{ font-family: var(--f-mono); font-size: .74rem; color: var(--orange); margin-bottom: 14px; display:block; }
+.service-card svg{ width: 30px; height: 30px; color: var(--ink); margin-bottom: 16px; }
+.service-card h4{ font-size: 1rem; margin-bottom: 8px; }
+.service-card p{ font-size: .87rem; color: var(--text-body); }
+
+.quote-layout{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.quote-info-card{
+  background: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  color: var(--steel-light);
+}
+.quote-info-card h3{ color: var(--white); font-size: 1.3rem; }
+.info-row{ display: flex; gap: 14px; align-items: flex-start; margin-bottom: 22px; }
+.info-row svg{ width: 22px; height: 22px; color: var(--orange); flex-shrink: 0; margin-top: 2px; }
+.info-row b{ display: block; color: var(--white); font-size: .88rem; margin-bottom: 2px; }
+.info-row span{ font-size: .84rem; }
+
+.process-steps{ display: flex; flex-direction: column; gap: 0; margin-top: 30px; }
+.process-step{ display:flex; gap: 14px; padding: 14px 0; border-top: 1px solid var(--line-dark); }
+.process-step:first-child{ border-top: none; }
+.process-step .step-num{ font-family: var(--f-display); font-size: 1.3rem; color: var(--orange); width: 30px; }
+.process-step div b{ display:block; color: var(--white); font-size: .85rem; }
+.process-step div span{ font-size: .8rem; }
+
+@media (max-width: 900px){
+  .service-grid{ grid-template-columns: 1fr 1fr; }
+  .quote-layout{ grid-template-columns: 1fr; }
+}
+@media (max-width: 560px){
+  .service-grid{ grid-template-columns: 1fr; }
+}

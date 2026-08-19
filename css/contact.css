@@ -1,0 +1,72 @@
+/* ==========================================================================
+   CONTACT.CSS
+   ========================================================================== */
+
+.contact-layout{
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.contact-cards{ display: flex; flex-direction: column; gap: 16px; margin-bottom: 30px; }
+.contact-card{
+  display: flex;
+  gap: 16px;
+  padding: 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.contact-card .ic{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--off-white);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.contact-card svg{ width: 20px; height: 20px; color: var(--orange); }
+.contact-card h4{ font-size: .88rem; margin-bottom: 4px; }
+.contact-card p{ font-size: .84rem; color: var(--text-body); margin: 0; }
+
+.map-placeholder{
+  position: relative;
+  aspect-ratio: 16/10;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background:
+    linear-gradient(160deg, #23272e, #14161a);
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line-dark);
+}
+.map-placeholder::before{
+  content:'';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+.map-pin{
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--white);
+  text-align: center;
+}
+.map-pin svg{ width: 34px; height: 34px; color: var(--orange); }
+.map-pin span{ font-family: var(--f-mono); font-size: .78rem; color: var(--steel-light); max-width: 240px; }
+
+.hours-table{ width: 100%; margin-top: 16px; }
+.hours-table tr{ border-bottom: 1px dashed var(--line); }
+.hours-table td{ padding: 8px 0; font-size: .85rem; }
+.hours-table td:first-child{ color: var(--text-body); font-family: var(--f-mono); font-size: .76rem; }
+.hours-table td:last-child{ text-align: right; font-weight: 600; }
+
+@media (max-width: 900px){
+  .contact-layout{ grid-template-columns: 1fr; }
+}

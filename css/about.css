@@ -1,0 +1,75 @@
+/* ==========================================================================
+   ABOUT.CSS
+   ========================================================================== */
+
+.about-hero-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about-hero-grid .plate{
+  padding: 40px;
+  background: var(--ink);
+  border-color: var(--line-dark);
+}
+.about-hero-grid .plate p, .about-hero-grid .plate h4{ color: var(--steel-light); }
+.about-hero-grid .plate h4{ color: var(--white); }
+
+.timeline{
+  position: relative;
+  padding-left: 30px;
+  border-left: 2px solid var(--line);
+}
+.timeline-item{ position: relative; padding-bottom: 40px; }
+.timeline-item:last-child{ padding-bottom: 0; }
+.timeline-item::before{
+  content:'';
+  position: absolute;
+  left: -37px; top: 4px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--orange);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 2px var(--orange);
+}
+.timeline-item .year{ font-family: var(--f-mono); font-size: .78rem; color: var(--orange); letter-spacing: .06em; }
+.timeline-item h4{ margin: .2em 0 .3em; font-size: 1.05rem; text-transform: none; letter-spacing: 0; }
+.timeline-item p{ color: var(--text-body); font-size: .9rem; max-width: 480px; }
+
+.values-grid{ display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+.value-card{
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px;
+  text-align: center;
+}
+.value-card svg{ width: 32px; height: 32px; color: var(--orange); margin: 0 auto 14px; }
+.value-card h4{ font-size: .92rem; margin-bottom: 8px; }
+.value-card p{ font-size: .82rem; color: var(--text-body); }
+
+.team-grid{ display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+.team-card{ text-align: center; }
+.team-avatar{
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: var(--radius);
+  background: linear-gradient(160deg, var(--graphite), var(--ink));
+  display: grid;
+  place-items: center;
+  color: var(--orange);
+  font-family: var(--f-display);
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+.team-card h4{ font-size: .92rem; margin-bottom: 2px; text-transform: none; letter-spacing: 0; }
+.team-card span{ font-family: var(--f-mono); font-size: .72rem; color: var(--text-body); }
+
+@media (max-width: 900px){
+  .about-hero-grid{ grid-template-columns: 1fr; }
+  .values-grid, .team-grid{ grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 560px){
+  .values-grid, .team-grid{ grid-template-columns: 1fr; }
+}

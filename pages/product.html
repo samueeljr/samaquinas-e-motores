@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Produto | Samaquinas e Motores</title>
+<meta name="description" content="Detalhes técnicos, avaliações e compra de equipamentos agrícolas SA Máquinas e Motores.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%23ff5a1f%22/><text x=%2232%22 y=%2244%22 font-size=%2234%22 font-family=%22Arial%22 font-weight=%22bold%22 fill=%22%2314161a%22 text-anchor=%22middle%22>SA</text></svg>">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/animations.css">
+<link rel="stylesheet" href="../css/product.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="navbar-inner">
+    <a href="../index.html" class="brand"><span class="mark"><span>SA</span></span><span>Samaquinas<small>Motores &amp; Equipamentos</small></span></a>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="products.html" class="active">Produtos</a>
+      <a href="service.html">Assistência Técnica</a>
+      <a href="about.html">Sobre</a>
+      <a href="contact.html">Contato</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" data-open-search aria-label="Pesquisar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></button>
+      <span data-auth-slot></span>
+      <a href="cart.html" class="icon-btn" aria-label="Carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2 3h2l2.6 12.6a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+        <span class="badge-count" data-cart-count>0</span>
+      </a>
+    </div>
+    <button class="nav-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="search-overlay">
+  <button class="search-close" aria-label="Fechar busca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <div class="search-box">
+    <input type="text" placeholder="Buscar roçadeira, motosserra, marca...">
+    <div class="search-results"></div>
+    <p class="search-hint">Dica: pressione ESC para fechar.</p>
+  </div>
+</div>
+
+<div class="page-header" style="padding-bottom:0;">
+  <div class="page-header-inner">
+    <div class="breadcrumbs" id="breadcrumbs"><a href="../index.html">Home</a> / <a href="products.html">Produtos</a> / <span id="crumbName"></span></div>
+  </div>
+</div>
+
+<section class="section tight" id="productRoot">
+  <div class="section-inner product-layout">
+    <div>
+      <div class="gallery-main" id="galleryMain"></div>
+      <div class="gallery-thumbs" id="galleryThumbs"></div>
+    </div>
+
+    <div class="product-detail-info">
+      <span class="product-brand" id="pdBrand"></span>
+      <h1 id="pdName"></h1>
+      <div class="pd-rating">
+        <span class="stars" id="pdStars"></span>
+        <span id="pdRatingNum" style="font-size:.85rem;color:var(--text-body);"></span>
+        <a href="#reviews">ver avaliações</a>
+      </div>
+
+      <div class="pd-price-box">
+        <div class="old-price" id="pdOldPrice"></div>
+        <div class="price" id="pdPrice"></div>
+        <div class="installment" id="pdInstallment"></div>
+        <div class="pd-stock" id="pdStock"></div>
+      </div>
+
+      <p id="pdDesc" style="color:var(--text-body);"></p>
+
+      <div class="qty-row">
+        <div class="qty-selector">
+          <button type="button" id="qtyMinus">−</button>
+          <input type="text" id="qtyInput" value="1" readonly>
+          <button type="button" id="qtyPlus">+</button>
+        </div>
+        <span style="font-family:var(--f-mono);font-size:.78rem;color:var(--text-body);" id="qtyHint"></span>
+      </div>
+
+      <div class="pd-actions">
+        <button class="btn btn-primary" id="addToCartBtn">Adicionar ao carrinho</button>
+        <button class="btn btn-dark" id="buyNowBtn">Comprar agora</button>
+        <button class="icon-only" id="favToggleBtn" aria-label="Favoritar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.9-10-9.3C.4 8 2 4.5 5.6 4c2-.3 3.8.7 6.4 3.2C14.6 4.7 16.4 3.7 18.4 4c3.6.5 5.2 4 3.6 7.7C20 16.1 12 21 12 21z"/></svg>
+        </button>
+      </div>
+
+      <div class="pd-meta-list" id="pdMeta"></div>
+    </div>
+  </div>
+
+  <div class="section-inner pd-tabs">
+    <div class="tab-nav">
+      <button class="tab-btn active" data-tab="specs">Especificações</button>
+      <button class="tab-btn" data-tab="desc">Descrição completa</button>
+      <button class="tab-btn" data-tab="reviews">Avaliações</button>
+    </div>
+    <div class="tab-panel active" data-panel="specs">
+      <table class="spec-table" id="specTable"></table>
+    </div>
+    <div class="tab-panel" data-panel="desc">
+      <p id="pdFullDesc" style="max-width:720px;"></p>
+    </div>
+    <div class="tab-panel" data-panel="reviews" id="reviews">
+      <div id="reviewsList"></div>
+    </div>
+  </div>
+
+  <div class="section-inner related-section">
+    <div class="section-head" style="margin-bottom:26px;">
+      <h2 style="font-size:1.6rem;">Produtos relacionados</h2>
+    </div>
+    <div class="grid cols-4" id="relatedGrid"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-about">
+      <a href="../index.html" class="brand" style="margin-bottom:14px;"><span class="mark"><span>SA</span></span><span>SA Máquinas<small>Motores &amp; Equipamentos</small></span></a>
+      <p>Revenda autorizada Husqvarna: roçadeiras e motosserras, com assistência técnica especializada em São José dos Campos - SP.</p>
+      <div class="social-row">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://wa.me/5512974024933" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 20l1.1-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg></a>
+      </div>
+    </div>
+    <div><h4>Institucional</h4><ul><li><a href="about.html">Sobre nós</a></li><li><a href="service.html">Assistência Técnica</a></li><li><a href="contact.html">Contato</a></li><li><a href="products.html">Catálogo</a></li></ul></div>
+    <div><h4>Minha conta</h4><ul><li><a href="login.html">Entrar</a></li><li><a href="register.html">Criar conta</a></li><li><a href="cart.html">Carrinho</a></li><li><a href="account.html">Meus pedidos</a></li></ul></div>
+    <div class="footer-newsletter">
+      <h4>Fique por dentro</h4>
+      <p style="color:var(--steel);font-size:.85rem;">Receba promoções e novidades por e-mail.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); saToast('Inscrição realizada com sucesso!'); this.reset();">
+        <input type="email" placeholder="Seu e-mail" required>
+        <button type="submit">Inscrever</button>
+      </form>
+    </div>
+  </div>
+  <div class="brands-strip"><span>Revendedor Autorizado Husqvarna</span></div>
+  <div class="footer-bottom"><span>© <span data-year></span> SA Máquinas e Motores. Todos os direitos reservados.</span><span>Rua Paraibuna, 310 — Jardim São Dimas, São José dos Campos - SP</span></div>
+</footer>
+
+<a href="https://wa.me/5512974024933" target="_blank" rel="noopener" class="wa-float pulse" aria-label="Fale no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.4 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 2 3 4.7 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+</a>
+
+<script src="../js/data.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/products.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/product-page.js"></script>
+</body>
+</html>

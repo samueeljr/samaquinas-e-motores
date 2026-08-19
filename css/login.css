@@ -1,0 +1,74 @@
+/* ==========================================================================
+   LOGIN.CSS
+   ========================================================================== */
+
+.auth-split{
+  min-height: calc(100vh - 0px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.auth-visual{
+  position: relative;
+  background: var(--ink);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 60px;
+}
+.auth-visual::before{
+  content:'';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(-45deg, rgba(255,90,31,.10) 0 2px, transparent 2px 34px);
+}
+.auth-visual-icon{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.auth-visual-icon svg{ width: 50%; color: rgba(255,255,255,.06); }
+.auth-visual-quote{ position: relative; z-index: 2; color: var(--white); }
+.auth-visual-quote span{ font-family: var(--f-mono); font-size: .72rem; letter-spacing: .1em; color: var(--orange); text-transform: uppercase; }
+.auth-visual-quote h3{ color: var(--white); font-size: 1.6rem; margin: .3em 0 0; max-width: 380px; }
+
+.auth-form-panel{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px clamp(24px, 5vw, 90px);
+}
+.auth-form-box{ width: 100%; max-width: 420px; }
+.auth-form-box .eyebrow{ margin-bottom: 10px; }
+.auth-form-box h1{ font-size: 2rem; margin-bottom: .2em; }
+.auth-form-box .sub{ color: var(--text-body); margin-bottom: 34px; }
+
+.auth-divider{ display: flex; align-items: center; gap: 14px; margin: 24px 0; color: var(--text-body); font-size: .78rem; font-family: var(--f-mono); }
+.auth-divider::before, .auth-divider::after{ content:''; flex:1; height:1px; background: var(--line); }
+
+.btn-google{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-family: var(--f-body);
+  font-weight: 600;
+  font-size: .88rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+.btn-google:hover{ border-color: var(--ink); }
+
+.auth-footer-link{ text-align: center; margin-top: 26px; font-size: .88rem; color: var(--text-body); }
+.auth-footer-link a{ color: var(--orange); font-weight: 600; }
+
+.forgot-link{ font-size: .78rem; color: var(--text-body); text-decoration: underline; }
+
+@media (max-width: 900px){
+  .auth-split{ grid-template-columns: 1fr; }
+  .auth-visual{ display: none; }
+}

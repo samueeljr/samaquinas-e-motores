@@ -1,4 +1,4 @@
-<h1 align="center">SA Máquinas e Motores</h1>
+<h1 align="center">SAMaquinas e Motores</h1>
 
 <p align="center">
   Website desenvolvido para apresentação de produtos e serviços da SA Máquinas e Motores.
